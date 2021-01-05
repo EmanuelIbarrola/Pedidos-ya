@@ -8,9 +8,11 @@ import { RoutingRoutingModule } from './routing/routing-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,

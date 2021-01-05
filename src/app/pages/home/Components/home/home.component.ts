@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
       descripcion:"ricas",
       precio: 220,
       id:1,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
 
     {
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       descripcion:"ricas",
       precio: 220,
       id:2,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
 
     {
@@ -29,28 +29,28 @@ export class HomeComponent implements OnInit {
       descripcion:"ricas",
       precio: 220,
       id:3,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
     {
       titulo:"Pizza4",
       descripcion:"ricas",
       precio: 220,
       id:4,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
     {
       titulo:"Pizza5",
       descripcion:"ricas",
       precio: 220,
       id:5,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
     {
       titulo:"Pizza6",
       descripcion:"ricas",
       precio: 220,
       id:6,
-      imageUrl:"ada"
+      imageUrl:"../assets/pizza1.jpg"
     },
 
   ]
