@@ -1,0 +1,9 @@
+<p>login works!</p>
+
+<button routerLink="/pages">ir al pages</button>
+<router-outlet></router-outlet>
+<br><br>
+<button  (click)="sw= !sw"  type="button" class="btn btn-outline-primary">ngElse</button>
+
+<p>{{sw}}</p>
+<p *ngElse="sw">se muestra si es falso</p>

@@ -1,0 +1,50 @@
+{
+  "products": {
+
+    "p1": {
+    "titulo":"Pizza",
+    "descripcion":"ricas",
+    "precio": 220,
+    "id":1,
+    "imageUrl":"../assets/pizza1.jpg"
+  },
+
+  "p2": {
+    "titulo":"Pizza",
+    "descripcion":"ricas",
+    "precio": 220,
+    "id":2,
+    "imageUrl":"../assets/pizza1.jpg"
+  },
+
+  "p3": {
+    "titulo":"Pizza",
+    "descripcion":"ricas",
+    "precio": 220,
+    "id":3,
+    "imageUrl":"../assets/pizza1.jpg"
+  },
+    "p4": {
+      "titulo":"Pizza",
+      "descripcion":"ricas",
+      "precio": 220,
+      "id":4,
+      "imageUrl":"../assets/pizza1.jpg"
+    },
+    "p5": {
+      "titulo":"Pizza",
+      "descripcion":"ricas",
+      "precio": 220,
+      "id":5,
+      "imageUrl":"../assets/pizza1.jpg"
+    },
+    "p6": {
+      "titulo":"Pizza",
+      "descripcion":"ricas",
+      "precio": 220,
+      "id":6,
+      "imageUrl":"../assets/pizza1.jpg"
+    }
+
+  }
+}
