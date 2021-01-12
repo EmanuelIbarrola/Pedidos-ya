@@ -1,9 +1,24 @@
 
   <form [formGroup]= "productForm"  style="display: flex; flex-direction: column;">
-    <input  formControlName="titulo" type="text" >
-    <input  formControlName="descripcion" type="text" >
-    <input formControlName="precio" type="text" >
-    <input formControlName="id" type="text" >
-    <input formControlName="imageUrl" type="text" >  
+    <input  formControlName="titulo" type="text" class="form-control"   >
+
+    <div *ngIf="productForm.get('titulo').invalid && (productForm.get('titulo').touched || productForm.get('titulo').dirty)"
+    class="alert-danger">
+
+    <div *ngIf="productForm.get('titulo').errors!.required">password es requerido !!</div>
+    <div *ngIf="productForm.get('titulo').errors!.minlength">
+      password debe tener 4 caracteres como min
+    </div>
+  </div>
+
+   <input  formControlName="descripcion" type="text" class="form-control">
+   
+   <input formControlName="precio" type="text" class="form-control" >
+   
+   <input formControlName="id" type="text"  class="form-control">
+   
+   <input formControlName="imageUrl" type="text" class="form-control">  
+  
   </form>
+  
   <button (click)="onEnviar2()">Enviar</button> 

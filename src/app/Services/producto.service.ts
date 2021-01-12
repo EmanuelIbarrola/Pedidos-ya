@@ -13,6 +13,10 @@ export class ProductoService {
     return this.http.get( "https://comidas-ricas-default-rtdb.firebaseio.com/products.json");
 
   }
+  public addProduct(produc:any): Observable<any>{
+    return this.http.post( "https://comidas-ricas-default-rtdb.firebaseio.com/products.json",produc);
+
+  }
 
 
   }
