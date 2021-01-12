@@ -1,9 +1,10 @@
-<p>login works!</p>
+<div style="display: flex; flex-direction: column">
+  <form #form="ngForm">
+    Usuario:<input type="text"  name="usuario" ngModel/>
+    <br />
+    Contraseña:<input type="password"  name="contraseña" ngModel placeholder="Ingrese contraseña" />
+    <br /><br />
+  </form>
+</div> 
 
-<button routerLink="/pages">ir al pages</button>
-<router-outlet></router-outlet>
-<br><br>
-<button  (click)="sw= !sw"  type="button" class="btn btn-outline-primary">ngElse</button>
-
-<p>{{sw}}</p>
-<p *ngElse="sw">se muestra si es falso</p>
+<button (click)="onLogin(form)" routerLink="/pages" >Login</button>

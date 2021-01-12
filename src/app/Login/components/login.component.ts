@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  sw = true;
-
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
   }
+  onLogin(form: { value: any; }){
 
+      console.log("Formulario: ", form.value);
+
+      // this.router.navigate( ["/Pages"] );
+
+
+  }
 }
