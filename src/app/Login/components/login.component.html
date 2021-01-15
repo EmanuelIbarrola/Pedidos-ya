@@ -1,46 +1,36 @@
 <div style="display: flex; flex-direction: column">
-  <form #form="ngForm">
-    Usuario:<input
-      type="text"
-      name="usuario"
-      class="form-control"
-      minlength="4"
-      required
-      #usuario="ngModel"
-      ngModel
-    />
-    <div
-      *ngIf="usuario.invalid && (usuario.touched || usuario.dirty)"
-      class="alert-danger"
-    >
-      <div *ngIf="usuario.errors!.required">usuario es requerido !!</div>
-      <div *ngIf="usuario.errors!.minlength">
-        usuario debe tener 4 caracteres como min
-      </div>  
-    </div>
-    <br />
-    Contraseña:<input
-      type="password"
-      name="contraseña"
-      class="form-control"
-      minlength="4"
-      required
-      #pass="ngModel"
-      ngModel
-      placeholder="Ingrese contraseña"
-    />
 
-    <div
-      *ngIf="pass.invalid && (pass.touched || pass.dirty)"
-      class="alert-danger"
-    >
-      <div *ngIf="pass.errors!.required">password es requerido !!</div>
-      <div *ngIf="pass.errors!.minlength">
-        password debe tener 4 caracteres como min
-      </div>
+  <form [formGroup]="form">
+    <p>
+      Email: <br/>
+      <input type="text" formControlName='Email' class="form-control" />
+    </p>
+
+    <div *ngIf=" emailCampo!.invalid && ( emailCampo!.touched ||  emailCampo!.dirty)"
+    class="alert-danger">
+
+    <div *ngIf=" emailCampo!.errors!.required">Email es requerido !!</div>
+    <div *ngIf=" emailCampo!.hasError('email')">Email invalido!!</div>
+
+  </div>
+    <p>
+      Contraseña: <br/>
+    <input type="password"  formControlName="pass" placeholder="Ingrese contraseña" class="form-control" />
+    </p>
+
+    <div *ngIf=" passCampo!.invalid && ( passCampo!.touched ||  passCampo!.dirty)"
+    class="alert-danger">
+
+    <div *ngIf=" passCampo!.errors!.required">password es requerido !!</div>
+    <div *ngIf=" passCampo!.errors!.minlength">
+      password debe tener 4 caracteres como min
     </div>
-    <br /><br />
+
+  </div>
+
+
   </form>
-</div>
 
-<button (click)="onLogin(form)" routerLink="/pages">Login</button>
+</div>
+ <button  [disabled]="form.invalid"  routerLink="/pages">Login</button>
+<!-- <button [disabled]="form.invalid"   (click)="save()">Login</button> -->
