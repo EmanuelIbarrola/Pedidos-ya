@@ -21,22 +21,28 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.productForm=this.formbuilder.group( {
 
-    titulo:["titulo",[Validators.required, Validators.minLength(4)]],
+    titulo:["",[Validators.required, Validators.minLength(4)]],
 
-    descripcion:["descripcion",[Validators.required, Validators.minLength(4)]],
+    descripcion:["",[Validators.required, Validators.minLength(4)]],
 
-    precio:["precio",[Validators.required, Validators.minLength(4)]],
+    precio:["",[Validators.required, Validators.minLength(1)]],
 
-    id:["id",[Validators.required, Validators.minLength(1)]],
+    id:["",[Validators.required, Validators.minLength(1)]],
 
-    imageUrl:["imageUrl",[Validators.required, Validators.minLength(4)]],
+    imageUrl:["",[Validators.required, Validators.minLength(4)]],
 
     } );
   }
 
-  onEnviar2(){
+  onEnviar(){
+      if(this.productForm.valid){
+
       console.log("form gruop : ", this.productForm.value);
       this.productoService.addProduct(this.productForm.value).subscribe(res=> res)
+      }
+      else{
+        this.productForm.markAllAsTouched();
+      }
     }
 
 }

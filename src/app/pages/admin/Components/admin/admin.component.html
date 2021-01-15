@@ -1,35 +1,72 @@
 
-  <!-- <form [formGroup]= "productForm"  style="display: flex; flex-direction: column;">
+  <form [formGroup]= "productForm"  style="display: flex; flex-direction: column;">
+    <p>
+      Titulo: <br/>
     <input  formControlName="titulo" type="text" class="form-control"   >
+    </p>
 
-    <div *ngIf="productForm.get('titulo').invalid && (productForm.get('titulo').touched || productForm.get('titulo').dirty)"
+    <div *ngIf="productForm.get('titulo')!.invalid && (productForm.get('titulo')!.touched || productForm.get('titulo')!.dirty)"
     class="alert-danger">
 
-    <div *ngIf="productForm.get('titulo').errors.required">password es requerido !!</div>
-    <div *ngIf="productForm.get('titulo').errors.minlength">
+    <div *ngIf="productForm.get('titulo')!.errors!.required">titulo es requerido !!</div>
+    <div *ngIf="productForm.get('titulo')!.errors!.minlength">
       password debe tener 4 caracteres como min
     </div>
   </div>
 
+  <p>
+    Descripcion: <br/>
    <input  formControlName="descripcion" type="text" class="form-control">
+  </p>
 
-   <div *ngIf="productForm.get('descripcion').invalid && (productForm.get('descripcion').touched || productForm.get('descripcion').dirty)"
+   <div *ngIf="productForm.get('descripcion')!.invalid && (productForm.get('descripcion')!.touched || productForm.get('descripcion')!.dirty)"
    class="alert-danger">
 
-   <div *ngIf="productForm.get('descripcion').errors.required">descripcion es requerido !!</div>
-   <div *ngIf="productForm.get('descripcion').errors.minlength">
+   <div *ngIf="productForm.get('descripcion')!.errors!.required">descripcion es requerido !!</div>
+   <div *ngIf="productForm.get('descripcion')!.errors!.minlength">
     descripcion debe tener 4 caracteres como min
    </div>
   </div>
 
-
+  <p>
+    precio: <br/>
    <input formControlName="precio" type="text" class="form-control" >
+  </p>
+   <div *ngIf="productForm.get('precio')!.invalid && (productForm.get('precio')!.touched || productForm.get('precio')!.dirty)"
+   class="alert-danger">
 
+   <div *ngIf="productForm.get('precio')!.errors!.required">precio es requerido !!</div>
+   <div *ngIf="productForm.get('precio')!.errors!.minlength">
+    precio debe tener 1 caracteres como min
+   </div>
+  </div>
 
+  <p>
+    id: <br/>
    <input formControlName="id" type="text"  class="form-control">
+  </p>
+   <div *ngIf="productForm.get('id')!.invalid && (productForm.get('id')!.touched || productForm.get('id')!.dirty)"
+   class="alert-danger">
 
+   <div *ngIf="productForm.get('id')!.errors!.required">id es requerido !!</div>
+   <div *ngIf="productForm.get('id')!.errors!.minlength">
+    id debe tener 1 caracteres como min
+   </div>
+  </div>
+
+  <p>
+    ImagenUrl: <br/>
    <input formControlName="imageUrl" type="text" class="form-control">
+  </p>
+   <div *ngIf="productForm.get('imageUrl')!.invalid && (productForm.get('imageUrl')!.touched || productForm.get('imageUrl')!.dirty)"
+   class="alert-danger">
+
+      <div *ngIf="productForm.get('imageUrl')!.errors!.required">imagen es requerido !!</div>
+      <div *ngIf="productForm.get('imageUrl')!.errors!.minlength">
+        imagen debe tener 1 caracteres como min
+      </div>
+  </div>
 
   </form>
 
-  <button [disabled]="productForm.invalid "   (click)="onEnviar2()">Enviar</button> -->
+  <button    (click)="onEnviar()">Enviar</button>
