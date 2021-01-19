@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ProductoService } from 'src/app/Services/producto.service';
 
 @Component({
@@ -7,9 +8,11 @@ import { ProductoService } from 'src/app/Services/producto.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit , OnDestroy{
 
   // productForm : FormGroup ;
+  error : string =""
+  productSubs: Subscription = new Subscription;
 
   productForm = new FormGroup({
     reference: new FormControl(),
@@ -17,6 +20,7 @@ export class AdminComponent implements OnInit {
 });
 
   constructor(private formbuilder: FormBuilder, private productoService: ProductoService) { }
+
 
   ngOnInit(): void {
     this.productForm=this.formbuilder.group( {
@@ -35,14 +39,19 @@ export class AdminComponent implements OnInit {
   }
 
   onEnviar(){
-      if(this.productForm.valid){
-
       console.log("form gruop : ", this.productForm.value);
-      this.productoService.addProduct(this.productForm.value).subscribe(res=> res)
+      this.productSubs= this.productoService.addProduct(this.productForm.value).subscribe(res=> {
+      console.log("Resp", res);
+      },
+      err =>{
+        this.error=" Error de servidor"
       }
-      else{
-        this.productForm.markAllAsTouched();
-      }
+
+      );
+    }
+
+    ngOnDestroy(): void {
+      this.productSubs.unsubscribe();
     }
 
 }

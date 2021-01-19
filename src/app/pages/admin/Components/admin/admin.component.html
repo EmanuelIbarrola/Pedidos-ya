@@ -69,4 +69,10 @@
 
   </form>
 
-  <button    (click)="onEnviar()">Enviar</button>
+  <button  [disabled]="productForm.invalid"   (click)="onEnviar()">Enviar</button>
+
+  <p  class="alert-danger" >{{error}}</p>
+
+
+
+
