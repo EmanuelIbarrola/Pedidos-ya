@@ -8,14 +8,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductoService } from 'src/app/Services/producto.service';
 
 
+
+
 @NgModule({
   declarations: [AdminComponent],
+
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+  
+
   ],
   providers: [ProductoService],
 })

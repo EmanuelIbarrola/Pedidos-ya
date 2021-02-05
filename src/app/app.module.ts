@@ -13,6 +13,7 @@ import { RoutingRoutingModule } from './routing/routing-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     RoutingRoutingModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

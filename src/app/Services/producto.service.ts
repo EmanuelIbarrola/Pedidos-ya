@@ -18,5 +18,14 @@ export class ProductoService {
 
   }
 
+  public deleteProduct(ID:any): Observable<any>{
+    return this.http.delete( `https://comidas-ricas-default-rtdb.firebaseio.com/products/${ID}.json`);
 
   }
+
+  public upDateProduct(ID:any , produc:any): Observable<any>{
+    return this.http.put( `https://comidas-ricas-default-rtdb.firebaseio.com/products/${ID}.json`, produc);
+
+  }
+
+}
