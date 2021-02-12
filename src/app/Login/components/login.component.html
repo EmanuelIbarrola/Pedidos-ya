@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column">
+<!-- <div style="display: flex; flex-direction: column">
 
   <form [formGroup]="form">
     <p>
@@ -32,5 +32,35 @@
   </form>
 
 </div>
- <button  [disabled]="form.invalid"  routerLink="/pages">Login</button>
-<!-- <button [disabled]="form.invalid"   (click)="save()">Login</button> -->
+ <button  [disabled]="form.invalid"  routerLink="/pages">Login</button> -->
+
+ <form #form="ngForm">
+  <div class="card" style="width: 28rem">
+    <div class="card-body">
+      <h5 class="card-title">Login</h5>
+  
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Ingrese email" ngModel #emailIU="ngModel"
+          required />
+  
+        <div *ngIf="emailIU!.invalid && (emailIU!.touched || emailIU!.dirty)" class="alert-danger">
+          <div *ngIf="emailIU!.errors!.required">Email es requerido !!</div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Ingrese password" ngModel #passIU="ngModel"
+          required />
+  
+        <div *ngIf="passIU!.invalid && (passIU!.touched || passIU!.dirty)" class="alert-danger">
+          <div *ngIf="passIU!.errors!.required">password es requerido !!</div>
+        </div>
+      </div>
+  
+      <button [disabled]="form.invalid" (click)="onlogin(form)">Login</button>
+    </div>
+  </div>
+ </form>
+
