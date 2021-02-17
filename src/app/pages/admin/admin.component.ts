@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { identity, Subscription } from 'rxjs';
-import { ProductoService } from 'src/app/Services/producto.service';
+import { ProductoService } from 'src/app/shared/Services/producto.service';
 
 @Component({
   selector: 'app-admin',
@@ -52,7 +52,11 @@ export class AdminComponent implements OnInit , OnDestroy{
 
   onEnviar(){
       console.log("form gruop : ", this.productForm.value);
-      this.productSubs= this.productoService.addProduct(this.productForm.value).subscribe(res=> {
+      this.productSubs= this.productoService.addProduct({
+        ...this.productForm.value,
+        id:localStorage.getItem('userId')
+
+      }).subscribe(res=> {
       console.log("Resp", res);
       this.LoadProduct();
       },
@@ -63,8 +67,9 @@ export class AdminComponent implements OnInit , OnDestroy{
       );
     }
     LoadProduct():void{
+      const userId = localStorage.getItem('userId') 
       this.productos=[];
-      this.productSubs= this.productoService.getProduct().subscribe( res =>{
+      this.productSubs= this.productoService.getProductById(userId).subscribe( res =>{
         Object.entries(res).map((p:any) => this.productos.push({ID: p[0], ... p[1]}))
         console.log("iD ", this.productos)
        })
@@ -88,7 +93,15 @@ export class AdminComponent implements OnInit , OnDestroy{
      }
 
      Modificar(): void{
-       this.productoService.upDateProduct( this.editId ,this.productForm.value).subscribe(res=> {
+       this.productoService.upDateProduct(
+          this.editId ,
+         {
+        ...this.productForm.value,
+        id:localStorage.getItem('userId')
+        
+      }
+          
+          ).subscribe(res=> {
         console.log("Resp", res);
         this.LoadProduct();
         },

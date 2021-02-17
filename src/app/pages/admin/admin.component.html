@@ -56,20 +56,7 @@
          </div>
         </div>
 
-        <p>
-          id: <br/>
-         <input formControlName="id" type="text"  class="form-control">
-        </p>
-         <div *ngIf="productForm.get('id')!.invalid && (productForm.get('id')!.touched || productForm.get('id')!.dirty)"
-         class="alert-danger">
-
-         <div *ngIf="productForm.get('id')!.errors!.required">id es requerido !!</div>
-         <div *ngIf="productForm.get('id')!.errors!.minlength">
-          id debe tener 1 caracteres como min
-         </div>
-        </div>
-
-        <p>
+         <p>
           ImagenUrl: <br/>
          <input formControlName="imageUrl" type="text" class="form-control">
         </p>
