@@ -1,11 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './Components/admin/admin.component';
+import { AdminComponent } from './admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductoService } from 'src/app/Services/producto.service';
+import { ProductoService } from 'src/app/shared/Services/producto.service';
 
 
 
@@ -18,8 +17,8 @@ import { ProductoService } from 'src/app/Services/producto.service';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
-  
+    
+
 
   ],
   providers: [ProductoService],
