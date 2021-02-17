@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -9,7 +10,11 @@ import { AuthInterceptor } from './shared/Interceptores/auth.interceptor';
 const routes: Routes = [
   {path:"" , redirectTo:"login", pathMatch:"full"},
   {path:"login", loadChildren: ()=> import("../app/Login/login.module").then(m=>m.LoginModule)},
-  {path:"pages", loadChildren:()=> import("./Pages/pages.module").then(m=>m.PagesModule)},
+  {
+    path:"pages", loadChildren:()=> import("./Pages/pages.module").then(m=>m.PagesModule),
+    canActivate:[AuthGuard]
+  
+  },
 
 
 ];
@@ -28,6 +33,7 @@ const routes: Routes = [
 
   ],
   providers: [
+    AuthGuard,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,
