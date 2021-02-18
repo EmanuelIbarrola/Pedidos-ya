@@ -18,15 +18,18 @@ export class AutentificaciónService {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
 
       map((res: any) => { this.authAcceso(res.idToken,res.localId); return res; })
-      
+
     );
   }
 
 
   private authAcceso(token: string,userId:string): void {
-    localStorage.setItem('auth', token);
+    localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
   }
 
 
+    public getToken() {
+      return localStorage.getItem('token');
+    }
 }

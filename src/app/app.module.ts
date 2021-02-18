@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/Interceptores/auth.interceptor';
+import { AutentificaciónService } from './shared/Services/autentificación.service';
+
 
 const routes: Routes = [
   {path:"" , redirectTo:"login", pathMatch:"full"},
@@ -13,7 +15,7 @@ const routes: Routes = [
   {
     path:"pages", loadChildren:()=> import("./Pages/pages.module").then(m=>m.PagesModule),
     canActivate:[AuthGuard]
-  
+
   },
 
 
@@ -27,19 +29,20 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes), 
+    RouterModule.forRoot(routes),
     HttpClientModule,
 
 
   ],
   providers: [
+    AutentificaciónService,
     AuthGuard,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,
       multi:true
     }
-  
+
   ],
 
   bootstrap: [AppComponent]

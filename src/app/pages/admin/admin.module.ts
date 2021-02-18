@@ -9,6 +9,7 @@ import { ProductoService } from 'src/app/shared/Services/producto.service';
 
 
 
+
 @NgModule({
   declarations: [AdminComponent],
 
@@ -17,7 +18,7 @@ import { ProductoService } from 'src/app/shared/Services/producto.service';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    
+
 
 
   ],

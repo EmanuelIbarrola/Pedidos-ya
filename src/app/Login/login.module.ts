@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AutentificaciónService } from 'src/app/shared/Services/autentificación.service';
 import { NgElseDirective } from 'src/app/shared/Directivas/ng-else.directive';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -25,6 +24,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  providers:[ AutentificaciónService],
+  providers:[],
 })
 export class LoginModule { }
