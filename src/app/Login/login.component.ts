@@ -12,19 +12,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private autentificaciónService:AutentificaciónService) {}
     LoginError=""
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.autentificaciónService.verificacionLogueado())
+    this.router.navigate(['pages']);
+  }
 
   onlogin(form: any) {
     console.log("FORM: ",form.value)
 
-    this.autentificaciónService.Login({
-      email:form.value.email,
-      password:form.value.password,
-      returnSecureToken:true
-    }).subscribe( res =>{
+    this.autentificaciónService.Login({email:form.value.email,password:form.value.password,
+      returnSecureToken:true }).subscribe( res =>{
+
       console.log("Login Response: ", res)
       this.router.navigate(['pages'])
-      
+
     },
     error=>{
       console.log("Login Error: ",error)

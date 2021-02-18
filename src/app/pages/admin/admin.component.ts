@@ -1,3 +1,4 @@
+import { AutentificaciónService } from 'src/app/shared/Services/autentificación.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { identity, Subscription } from 'rxjs';
@@ -28,7 +29,10 @@ export class AdminComponent implements OnInit , OnDestroy{
     quantity: new FormControl()
 });
 
-  constructor(private formbuilder: FormBuilder, private productoService: ProductoService) { }
+  constructor(private formbuilder: FormBuilder,
+              private productoService: ProductoService,
+              private autentificaciónService: AutentificaciónService
+              ) { }
 
 
   ngOnInit(): void {
@@ -54,7 +58,7 @@ export class AdminComponent implements OnInit , OnDestroy{
       console.log("form gruop : ", this.productForm.value);
       this.productSubs= this.productoService.addProduct({
         ...this.productForm.value,
-        id:localStorage.getItem('userId')
+        id:this.autentificaciónService.getUserId()
 
       }).subscribe(res=> {
       console.log("Resp", res);
@@ -67,7 +71,7 @@ export class AdminComponent implements OnInit , OnDestroy{
       );
     }
     LoadProduct():void{
-      const userId = localStorage.getItem('userId') 
+      const userId = this.autentificaciónService.getUserId()
       this.productos=[];
       this.productSubs= this.productoService.getProductById(userId).subscribe( res =>{
         Object.entries(res).map((p:any) => this.productos.push({ID: p[0], ... p[1]}))
@@ -97,10 +101,10 @@ export class AdminComponent implements OnInit , OnDestroy{
           this.editId ,
          {
         ...this.productForm.value,
-        id:localStorage.getItem('userId')
-        
+        id:this.autentificaciónService.getUserId()
+
       }
-          
+
           ).subscribe(res=> {
         console.log("Resp", res);
         this.LoadProduct();
