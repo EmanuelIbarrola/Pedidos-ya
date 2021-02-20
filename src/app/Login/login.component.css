@@ -1,0 +1,51 @@
+.conteiner-login{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+.bg-dark-x{
+  background-color: #1e2126;
+}
+.form-control,.btn{
+  min-height: 3rem;
+  line-height: initial;
+}
+.img-1{
+  background-image: url('../../assets/Img/Pizza.jpg');
+  background-size: cover;
+  background-position: center;
+
+}
+.img-2{
+  background-image: url('../../assets/Img/pasta.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.img-1,.img-2{
+  filter: grayscale(30%);
+
+}
+
+.label-form{font-size: 1.2em;}
+
+.input-form:hover{ color: white;}
+
+.alert{
+  color: rgb(255, 15, 15);
+  letter-spacing: 2px;
+  animation: latido 2s infinite;
+}
+
+@keyframes latido{
+  0%{
+     color:rgb(255, 15, 15);
+
+    }
+  50%{
+    color:rgba(160, 12, 7, 0.774);
+  }
+ 
+}
