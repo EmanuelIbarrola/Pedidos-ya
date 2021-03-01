@@ -1,6 +1,7 @@
 import { ProductoService } from '../../shared/Services/producto.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AutentificaciónService } from 'src/app/shared/Services/autentificación.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit ,OnDestroy {
 
   productos: any[] = [];
+
 
   productSubs: Subscription = new Subscription;
 

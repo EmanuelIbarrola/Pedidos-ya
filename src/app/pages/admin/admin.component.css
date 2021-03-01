@@ -1,7 +1,9 @@
+
 .container{
   display: flex;
   width: 100%;
   padding: 0;
+  overflow: hidden;
 }
 .choice{
 
@@ -47,4 +49,26 @@
 
 }
 
+.card-admin{
+  background-color: #003D63;
+  color: white;
+}
 
+.boton-admin{
+  background-color: #FF0D0D;
+  color:white;
+
+}
+.boton-admin:hover{
+  background-color: #470404;
+ color:white;
+
+}
+
+h2{
+  display: inline;
+  border-bottom: 1px solid black;
+}
+.fondo{
+  background-color: rgb(228, 222, 222);
+}

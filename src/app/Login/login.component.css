@@ -17,12 +17,14 @@
   background-image: url('../../assets/Img/Pizza.jpg');
   background-size: cover;
   background-position: center;
+  width: 100%;
 
 }
 .img-2{
   background-image: url('../../assets/Img/pasta.jpg');
   background-size: cover;
   background-position: center;
+  width: 100%;
 }
 .img-1,.img-2{
   filter: grayscale(30%);

@@ -1,5 +1,23 @@
-.carrusel{
-  width: 100%;
-  object-fit: cover;
+  
+ .card-home{
+  background-color: #003D63;
+  color: white;
+  border: 1px solid black; 
+}
+.boton-comprar{
+  background-color: #FF0D0D;
+  color:white;
 
+}
+.boton-comprar:hover{
+  background-color: #470404;
+ color:white;
+
+}
+.text-home{
+  font-size: 1.5em;
+}
+
+.fondo{
+  background-color: rgb(228, 222, 222);
 }
