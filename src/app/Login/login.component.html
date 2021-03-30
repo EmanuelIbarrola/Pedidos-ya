@@ -21,6 +21,12 @@
     <div class="col-lg-5 d-flex flex-column align-items-end min-vh-100">
       <div class="px-lg-5 py-lg-3 p-4 w-100 align-self-center">
         <h1 class="font-weight-bold mb-4">Bienvenidos Good Food </h1>
+
+        <h4 class="title center">
+          <span *ngIf="login">Iniciar Sesión</span>
+          <span *ngIf="!login">Registrarse</span>
+      </h4>
+
         <form #form="ngForm">
           <div class="mb-5">
             <label for="exampleInputEmail1" class="form-label font-weight-bold label-form">Email</label>
@@ -42,22 +48,35 @@
                 password es requerido !!
               </div>
             </div>
-
-            <a href="#" id="emailHelp" class="form-text text-muted text-decoration-none">
-              ¿Olvidaste tu contraseña?
-            </a>
-
           </div>
 
-          <button class="btn btn-primary w-100 mb-1" [disabled]="form.invalid" (click)="onlogin(form)">
+          <div class="mb-5" *ngIf="!login">
+            <label for="exampleInputPassword1" class="form-label font-weight-bold label-form">Repetir Password</label>
+            <input type="password" name="password" class="form-control bg-dark-x border-0 mb-2  text-white" placeholder="Ingrese password" ngModel
+              #passIU="ngModel" required />
+
+             <div *ngIf="passIU!.invalid && (passIU!.touched || passIU!.dirty)" class="alert mb-2">
+              <div *ngIf="passIU!.errors!.required">
+                password es requerido !!
+              </div>
+            </div>
+          </div>
+
+
+          <button *ngIf="login" class="btn btn-primary w-100 mb-3" [disabled]="form.invalid" (click)="onlogin(form)">
             Iniciar sesion
+          </button>
+
+          <button *ngIf="!login" class="btn btn-primary w-100 mb-3" [disabled]="form.invalid" (click)="onRegister(form)">
+            Registrarse
           </button>
         </form>
 
-        <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 w-100v mt-auto">
-          <p class="d-inline-block mb-0">¿todavia no tienes una cuenta?</p>
-          <a  class="text-decoration-none  font-weight-bold" href="#">Crear cuenta</a>
-        </div>
+        <span class="text-center px-lg-5 pt-lg-3 pb-lg-4 w-100v mt-4 " (click)="changeForm()">
+          <p class="d-inline-block mb-0" *ngIf="login">¿todavia no tienes una cuenta?</p>
+          <a class="text-decoration-none  font-weight-bold" *ngIf="login" >Registrarse</a>
+          <a  class="text-decoration-none  font-weight-bold text-center" *ngIf="!login">Inciar Sesión</a>
+      </span>
 
       </div>
     </div>
